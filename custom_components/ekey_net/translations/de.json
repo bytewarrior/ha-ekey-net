@@ -1,0 +1,59 @@
+{
+  "title": "ekey net",
+  "config": {
+    "step": {
+      "user": {
+        "title": "ekey net einrichten",
+        "description": "Gib den UDP-Port an, auf dem Home Assistant die Ereignis-Pakete deines ekey-net-Systems empfangen soll. Trage im ekey net admin die IP-Adresse dieses Home-Assistant-Hosts und denselben Port als UDP-Paketempfänger ein und führe anschließend \"Änderungen an Geräte senden\" aus.",
+        "data": {
+          "port": "UDP-Port"
+        },
+        "data_description": {
+          "port": "Standard: 56000. Wertebereich 1-65535."
+        }
+      }
+    },
+    "abort": {
+      "already_configured": "Dieser UDP-Port ist bereits konfiguriert."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "ekey net Optionen",
+        "description": "Dekodierung feinjustieren und ekey-Benutzer mit Home-Assistant-Personen verknüpfen. Speichern lädt die Integration neu.",
+        "data": {
+          "protocol_format": "Protokollformat",
+          "user_map": "Benutzer-zu-Person-Zuordnung",
+          "name_map": "Benutzer-zu-Anzeigename",
+          "bind_address": "Bind-Adresse (optional)"
+        },
+        "data_description": {
+          "protocol_format": "\"auto\" erkennt das rare/net-Format automatisch.",
+          "user_map": "Eine Zuordnung pro Zeile, z. B. \"46 = person.anna\". Verknüpft ekey-Benutzer-IDs mit Home-Assistant-Personen.",
+          "name_map": "Fallback-Anzeigename je Benutzer-ID, z. B. \"46 = Anna\".",
+          "bind_address": "Leer = alle Netzwerkschnittstellen (0.0.0.0)."
+        }
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "last_user": { "name": "Letzter Benutzer" },
+      "last_finger": { "name": "Letzter Finger" },
+      "last_action": { "name": "Letzte Aktion" }
+    }
+  },
+  "device_automation": {
+    "trigger_type": {
+      "access_granted": "Zutritt gewährt",
+      "access_denied_unknown": "Abgelehnt (unbekannter Finger)",
+      "access_denied_known": "Abgelehnt (bekannt)",
+      "rfid": "RFID-Identifikation",
+      "pin": "PIN eingegeben",
+      "digital_input": "Digitaleingang",
+      "alarm_arm": "Alarmanlage scharf",
+      "alarm_disarm": "Alarmanlage unscharf"
+    }
+  }
+}

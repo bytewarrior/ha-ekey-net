@@ -1,0 +1,59 @@
+{
+  "title": "ekey net",
+  "config": {
+    "step": {
+      "user": {
+        "title": "Set up ekey net",
+        "description": "Enter the UDP port on which Home Assistant should receive the event packets from your ekey net system. In ekey net admin, set the IP address of this Home Assistant host and the same port as the UDP packet recipient, then run \"Send changes to devices\".",
+        "data": {
+          "port": "UDP port"
+        },
+        "data_description": {
+          "port": "Default: 56000. Range 1-65535."
+        }
+      }
+    },
+    "abort": {
+      "already_configured": "This UDP port is already configured."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "ekey net options",
+        "description": "Fine-tune decoding and link ekey users to Home Assistant persons. Saving reloads the integration.",
+        "data": {
+          "protocol_format": "Protocol format",
+          "user_map": "User to person mapping",
+          "name_map": "User to display name",
+          "bind_address": "Bind address (optional)"
+        },
+        "data_description": {
+          "protocol_format": "\"auto\" detects the rare/net format automatically.",
+          "user_map": "One mapping per line, e.g. \"46 = person.anna\". Links ekey user IDs to Home Assistant persons.",
+          "name_map": "Fallback display name per user ID, e.g. \"46 = Anna\".",
+          "bind_address": "Empty = all network interfaces (0.0.0.0)."
+        }
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "last_user": { "name": "Last user" },
+      "last_finger": { "name": "Last finger" },
+      "last_action": { "name": "Last action" }
+    }
+  },
+  "device_automation": {
+    "trigger_type": {
+      "access_granted": "Access granted",
+      "access_denied_unknown": "Access denied (unknown finger)",
+      "access_denied_known": "Access denied (known)",
+      "rfid": "RFID identification",
+      "pin": "PIN entered",
+      "digital_input": "Digital input",
+      "alarm_arm": "Alarm armed",
+      "alarm_disarm": "Alarm disarmed"
+    }
+  }
+}
