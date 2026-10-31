@@ -42,8 +42,11 @@ logbook.
 
 ### HACS (custom repository)
 
-1. In HACS, add this repository (`https://github.com/bytewarrior/ha-ekey-net`)
-   as a custom repository of type *Integration*.
+[![Open your Home Assistant instance and open this repository inside HACS.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=bytewarrior&repository=ha-ekey-net&category=integration)
+
+1. Click the button above, or in HACS add this repository
+   (`https://github.com/bytewarrior/ha-ekey-net`) manually as a custom
+   repository of type *Integration*.
 2. Install **ekey net** and restart Home Assistant.
 
 ### Manual
@@ -66,8 +69,10 @@ already contains the resolved user name.
 
 ### 2. On the Home Assistant side
 
-1. Go to **Settings → Devices & Services → Add Integration** and search for
-   **ekey net**.
+[![Open your Home Assistant instance and start setting up ekey net.](https://my.home-assistant.io/badges/config_flow_start.svg)](https://my.home-assistant.io/redirect/config_flow_start/?domain=ekey_net)
+
+1. Click the button above, or go to **Settings → Devices & Services → Add
+   Integration** and search for **ekey net**.
 2. Enter the **UDP port** (default `56000`). That is all that is required —
    scanners and entities are created automatically once the first event
    arrives.
